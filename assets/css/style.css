@@ -6,5 +6,56 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     line-height: 1.5rem;
-    color: #323232;
+    color: whitesmoke;
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+nav{
+    background-color: darkorange;
+    border-bottom: groove;
+    border-color: rgb(223, 76, 8);
+    border-width: 5px;
+}
+
+#logo{
+    max-width: 80px;
+    margin-right: 25px;
+    margin-left: 10px;
+}
+
+form{
+    width: 30%;
+}
+
+#user-input{
+    width: 75%;
+}
+
+#user-submit{
+    width: 25%;
+}
+
+#main{
+    overflow: auto;
+    clear: both;
+    font-family: 'Play', sans-serif;
+    color: #FF981C;
+    margin-top:25px;
+    border-style: groove;
+    border-color: white;
+    border-width: 10px;
+    border-radius: 5px;
+    background-color: rgba(15, 15, 15, 0.87);
+    padding: 30px;
+}
+
+#first-one{
+    width: 30%;
+}
+
+#first-two{
+    width: 70%;
 }
