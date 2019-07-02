@@ -35,14 +35,6 @@ form{
     width: 30%;
 }
 
-#user-input{
-    width: 75%;
-}
-
-#user-submit{
-    width: 25%;
-}
-
 #main{
     overflow: auto;
     clear: both;
