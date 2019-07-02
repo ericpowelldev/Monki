@@ -13,6 +13,11 @@ body {
     background-attachment: fixed;
 }
 
+#all{
+    max-height: 800px;
+    margin-bottom: 100px;
+}
+
 nav{
     background-color: darkorange;
     border-bottom: groove;
@@ -49,7 +54,39 @@ form{
     border-width: 10px;
     border-radius: 5px;
     background-color: rgba(15, 15, 15, 0.87);
-    padding: 30px;
+    padding: 20px;
+    width: 90%;
+    height: 800px;
+}
+
+#media{
+    width: 90%;
+    font-family: 'Play', sans-serif;
+    color: #FF981C;
+    margin-top:25px;
+    border-style: groove;
+    border-color: white;
+    border-width: 10px;
+    border-radius: 5px;
+    background-color: rgba(15, 15, 15, 0.87);
+    padding: 20px;
+    margin-left: 10px;
+    height: 375px;
+}
+
+#map{
+    height: 400px;
+    margin-left: 10px;
+    width: 90%;
+    font-family: 'Play', sans-serif;
+    color: #FF981C;
+    margin-top:25px;
+    border-style: groove;
+    border-color: white;
+    border-width: 10px;
+    border-radius: 5px;
+    background-color: rgba(15, 15, 15, 0.87);
+    padding: 20px;
 }
 
 #first-one{
