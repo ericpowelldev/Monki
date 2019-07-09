@@ -7,22 +7,75 @@ body {
     font-size: 24px;
     line-height: 1.5rem;
     color: whitesmoke;
-    background-image: url(../images/background.jpg);
+    background-image: url(../images/background3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    text-align: center;
 }
 
-#all {
-    max-height: 800px;
+#index-container{
+    margin: auto;
+    width: 35%;
     margin-bottom: 100px;
+    /* background-color: rgba(255, 255, 255, 0.25); */
 }
 
-nav {
+#main-logo{
+    width: 100%;
+}
+
+form{
+    width: 100%;
+}
+
+input#artist{
+    width: 100%;
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+input[type="submit"]{
+    height: 30px;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+span#venues-link{
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 20px;
+    
+}
+
+
+header {
     background-color: darkorange;
     border-bottom: groove;
     border-color: rgb(223, 76, 8);
-    border-width: 5px;
+    border-width: 7px;
+    width: 100%;
+    margin-top: 0px;
+    left: 0px;
+    height: 96px;
+    position: fixed;
+    top: 0px;
+}
+
+#logo-container {
+    float: left;
+    padding: 20px;
+    margin-top: 0;
+}
+
+#all {
+    margin-bottom: 100px;
+    margin-top: 125px;
 }
 
 #logo {
@@ -31,60 +84,85 @@ nav {
     margin-left: 10px;
 }
 
-form {
-    width: 30%;
+a {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-#main {
-    overflow: auto;
-    clear: both;
+#pac-input{
+    height: 40px;
+    width: 300px;
+    margin-top: 10px;
+    font-size: 18px;
+    padding-left:5px;
+}
+
+ul {
+    display: inline;
+    list-style-type: none;
+}
+
+#link2 {
+    float: left;
+    border-right-style: groove;
+    border-right-width: 5px;
+    border-right-color: rgb(223, 76, 8);
+    font-size: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 15px;
+    margin-top: 30px;
+}
+
+#link3 {
+    margin-top: 30px;
+    float: left;
+    font-size: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.feature {
     font-family: 'Play', sans-serif;
     color: #FF981C;
-    margin-top: 25px;
+    margin-top: 14px;
     border-style: groove;
     border-color: white;
     border-width: 10px;
     border-radius: 5px;
     background-color: rgba(15, 15, 15, 0.87);
     padding: 20px;
-    width: 90%;
-    height: 800px;
 }
 
-#media {
-    width: 90%;
-    font-family: 'Play', sans-serif;
-    color: #FF981C;
-    margin-top: 25px;
-    border-style: groove;
-    border-color: white;
-    border-width: 10px;
-    border-radius: 5px;
-    background-color: rgba(15, 15, 15, 0.87);
-    padding: 20px;
-    margin-left: 10px;
-    height: 375px;
+#col-one {
+    float: left;
+    width: 32.5%;
+}
+
+#col-two {
+    float: left;
+    width: 32.5%;
+    margin-left: 14px;
+}
+
+#col-three {
+    float: left;
+    width: 32.5%;
+    margin-left: 13px;
 }
 
 #map {
-    height: 400px;
-    margin-left: 10px;
-    width: 90%;
+    height: inherit;
     font-family: 'Play', sans-serif;
     color: black;
-    margin-top: 25px;
-    border-style: groove;
-    border-color: white;
-    border-width: 10px;
-    border-radius: 5px;
     background-color: rgba(15, 15, 15, 0.87);
-    padding: 20px;
-}
-
-#first-one {
-    width: 30%;
-}
-
-#first-two {
-    width: 70%;
+    overflow: auto;
+    clear: both;
+    width: 80%;
+    height: 350px;
+    margin: auto;
+    }
 }
