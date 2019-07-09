@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
 }
-  
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
@@ -13,34 +13,34 @@ body {
     background-attachment: fixed;
 }
 
-#all{
+#all {
     max-height: 800px;
     margin-bottom: 100px;
 }
 
-nav{
+nav {
     background-color: darkorange;
     border-bottom: groove;
     border-color: rgb(223, 76, 8);
     border-width: 5px;
 }
 
-#logo{
+#logo {
     max-width: 80px;
     margin-right: 25px;
     margin-left: 10px;
 }
 
-form{
+form {
     width: 30%;
 }
 
-#main{
+#main {
     overflow: auto;
     clear: both;
     font-family: 'Play', sans-serif;
     color: #FF981C;
-    margin-top:25px;
+    margin-top: 25px;
     border-style: groove;
     border-color: white;
     border-width: 10px;
@@ -51,11 +51,11 @@ form{
     height: 800px;
 }
 
-#media{
+#media {
     width: 90%;
     font-family: 'Play', sans-serif;
     color: #FF981C;
-    margin-top:25px;
+    margin-top: 25px;
     border-style: groove;
     border-color: white;
     border-width: 10px;
@@ -66,13 +66,13 @@ form{
     height: 375px;
 }
 
-#map{
+#map {
     height: 400px;
     margin-left: 10px;
     width: 90%;
     font-family: 'Play', sans-serif;
-    color: #FF981C;
-    margin-top:25px;
+    color: black;
+    margin-top: 25px;
     border-style: groove;
     border-color: white;
     border-width: 10px;
@@ -81,10 +81,10 @@ form{
     padding: 20px;
 }
 
-#first-one{
+#first-one {
     width: 30%;
 }
 
-#first-two{
+#first-two {
     width: 70%;
 }
