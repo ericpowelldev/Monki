@@ -13,18 +13,16 @@
   <!-- Tab Title -->
   <title>Monki</title>
 
-  <!-- Bootstrap Links-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
   <!-- Custom CSS -->
-  <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
   <!-- Google FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
 
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.png"/>
 
 
 </head>
@@ -35,99 +33,22 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <img src="assets/images/monki_nav.png" id="logo" alt="logo">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">Artists<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="venues.html">Venues</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input id="user-input-artists" class="form-control mr-sm-2" type="search" placeholder="Search"
-          aria-label="Search">
-        <button id="user-submit" class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
+  <div id="index-container">
 
+    <img src="assets/images/monki_textLogo.png" id="main-logo">
+    <form>
+      <input type="text" placeholder="Search For Artists" id="artist" name="user-artist">
+      <input type="submit" value="Search" id="submit-button">
+    </form>
 
-  <div id="all" class="container">
+    <a href="venues.html"><span id="venues-link">Click Here for Local and Far Venues</span></a>
 
-    <div class="row">
-
-      <div id="main" class="col-sm-6">
-        MEDIA NEWS ETC
-        <p>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora
-          quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris.
-          Hi
-          mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella
-          viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh
-          eater,
-          brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.
-        </p>
-        <p>
-          Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora
-          quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris.
-          Hi
-          mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella
-          viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh
-          eater,
-          suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio
-          brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.
-        </p>
-        <p>
-          Cum horribilem walking dead resurgere de crazed sepulcris creaturis, zombie sicut de grave feeding iride et
-          serpens. Pestilentia, shaun ofthe dead scythe animated corpses ipsa screams. Pestilentia est plague haec
-          decaying
-          ambulabat mortuos. Sicut zeder apathetic malus voodoo. Aenean a dolor plan et terror soulless vulnerum
-          contagium
-          accedunt, mortui iam vivam unlife. Qui tardius moveri, brid eof reanimator sed in magna copia sint terribiles
-          undeath legionis. Alii missing oculis aliorum sicut serpere crabs nostram. Putridi braindead odores kill and
-          infect, aere implent left four dead.
-        </p>
-      </div>
-
-
-      <div class="col-sm-6">
-
-        <div id="media" class="row">
-
-          <div class="col-sm">
-            VIDEO???MEDIA???INFO???
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore nulla optio dicta modi corporis illum in
-            autem, sit amet perspiciatis provident laborum, accusantium minus dolores inventore possimus incidunt ipsa
-            ut alias pariatur rerum consequatur praesentium maxime! Natus sequi, debitis libero culpa nam quam earum
-            autem ea perspiciatis enim iure sit.
-          </div>
-        </div>
-
-
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-        <div id="map">
-        </div>
-
-
-      </div>
-
-    </div>
   </div>
-
 
 
   
   <!-- JQuery-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- 
-  <!-- Bootstrap JS-->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
   <!-- External JS -->
   <script src="assets/js/logic.js"></script>
