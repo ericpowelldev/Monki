@@ -55,7 +55,7 @@ span#venues-link{
 
 
 header {
-    background-color: darkorange;
+    background-color: #BCA285;
     border-bottom: groove;
     border-color: rgb(223, 76, 8);
     border-width: 7px;
@@ -67,10 +67,34 @@ header {
     top: 0px;
 }
 
+#header-container{
+    width: 80%;
+    margin: auto;
+    margin-top: 0px;
+    height: 96px;
+}
+
+#nav-form {
+    width: 85%;
+    float: right;
+    margin-top: 27px;
+    display: inline-flex;
+}
+
+input#submit-button2{
+    height: 30px;
+    width: 20%;
+    margin-left: 10px;
+    margin-right: 0px;
+    border-radius: 5px;
+    margin-top: 0px;
+}
+
 #logo-container {
     float: left;
-    padding: 20px;
-    margin-top: 0;
+    max-height: 70px;
+    width: 15%;
+    margin-top: 10px;
 }
 
 #all {
@@ -79,9 +103,7 @@ header {
 }
 
 #logo {
-    max-width: 80px;
-    margin-right: 25px;
-    margin-left: 10px;
+    max-height: inherit;
 }
 
 a {
@@ -98,31 +120,37 @@ a {
     padding-left:5px;
 }
 
-ul {
-    display: inline;
-    list-style-type: none;
+.return-div{
+    background-color: rgba(42, 33, 23, 0.5);
+    border-style: groove;
+    border-color: antiquewhite;
+    border-width: 10px;
+    margin-bottom: 20px;
+    color: darkorange;
 }
 
-#link2 {
-    float: left;
-    border-right-style: groove;
-    border-right-width: 5px;
-    border-right-color: rgb(223, 76, 8);
-    font-size: 30px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 15px;
-    margin-top: 30px;
+div#artist-container{
+    margin-top: 120px;
+    max-height: 200px;
+    overflow: hidden;
 }
 
-#link3 {
-    margin-top: 30px;
+#results{
+    width: 60%;
+    margin: auto;
+}
+
+img#artist-img{
     float: left;
-    font-size: 30px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    margin-left: 0px;
+    max-height: 150px;
+    max-width: 150px;
+}
+
+p#artist-snippet{
+    font-size: 40px;
+    margin-top: 40px;
+    line-height: normal;
 }
 
 .feature {
@@ -134,7 +162,8 @@ ul {
     border-width: 10px;
     border-radius: 5px;
     background-color: rgba(15, 15, 15, 0.87);
-    padding: 20px;
+    padding: 10px;
+    font-size: 20px;
 }
 
 #col-one {
@@ -164,5 +193,5 @@ ul {
     width: 80%;
     height: 350px;
     margin: auto;
-    }
+}
 }
