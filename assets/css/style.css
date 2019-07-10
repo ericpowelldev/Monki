@@ -2,7 +2,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
 }
@@ -32,6 +33,7 @@ body {
     background: #ffffff00;
     color: #fff;
 }
+
 #loginBtn:hover {
     transition: 0.25s;
     background: #fff;
@@ -46,50 +48,62 @@ body {
     margin-right: auto;
     max-width: 600px;
 }
+
 #homeDiscover {
     text-align: center;
     margin-top: 12px;
     color: #fff;
 }
+
 #homeDiscover a {
     transition: 0.25s;
     color: #404040;
 }
+
 #homeDiscover a:hover {
     color: #0080ff;
 }
 
-#searchBox:hover > #searchBtn img {
-    width: 72px;
-    height: 72px;
-}
-#searchBoxNav:hover > #searchBtnNav img {
-    width: 72px;
-    height: 72px;
-}
-#searchBoxMap:hover > #searchBtnMap img {
-    width: 72px;
-    height: 72px;
-}
-#searchBoxAmount:hover > #searchBtnAmount img {
+#searchBox:hover>#searchBtn img {
     width: 72px;
     height: 72px;
 }
 
-#searchBox, #searchBoxNav, #searchBoxMap {
+#searchBoxNav:hover>#searchBtnNav img {
+    width: 72px;
+    height: 72px;
+}
+
+#searchBoxMap:hover>#searchBtnMap img {
+    width: 72px;
+    height: 72px;
+}
+
+#searchBoxAmount:hover>#searchBtnAmount img {
+    width: 72px;
+    height: 72px;
+}
+
+#searchBox,
+#searchBoxNav,
+#searchBoxMap {
     width: 800px;
     height: 48px;
     border-radius: 48px;
 }
+
 #searchBox {
     background: #404040;
     margin: auto;
 }
-#searchBoxNav, #searchBoxMap {
+
+#searchBoxNav,
+#searchBoxMap {
     float: right;
     background: #fff;
     margin-top: 24px;
 }
+
 #searchBoxAmount {
     width: 300px;
     height: 48px;
@@ -98,7 +112,10 @@ body {
     margin: auto;
 }
 
-#searchTxt, #searchTxtNav, #searchTxtMap, #searchTxtAmount {
+#searchTxt,
+#searchTxtNav,
+#searchTxtMap,
+#searchTxtAmount {
     border: none;
     background: none;
     outline: none;
@@ -108,20 +125,27 @@ body {
     font-size: 21px;
     transition: 0.25s;
 }
+
 #searchTxt {
     color: #fff;
     width: 720px;
 }
-#searchTxtNav, #searchTxtMap {
+
+#searchTxtNav,
+#searchTxtMap {
     color: #404040;
     width: 720px;
 }
+
 #searchTxtAmount {
     color: #fff;
     width: 220px;
 }
 
-#searchBtn, #searchBtnNav, #searchBtnMap, #searchBtnAmount {
+#searchBtn,
+#searchBtnNav,
+#searchBtnMap,
+#searchBtnAmount {
     float: right;
     width: 48px;
     height: 48px;
@@ -129,15 +153,19 @@ body {
     justify-content: center;
     align-items: center;
 }
-#searchBtn img, #searchBtnNav img, #searchBtnMap img, #searchBtnAmount img {
+
+#searchBtn img,
+#searchBtnNav img,
+#searchBtnMap img,
+#searchBtnAmount img {
     transition: 0.25s;
     width: 50px;
     height: 50px;
 }
 
-
-
-#resultTitle, #artistTitle, #mapTitle {
+#resultTitle,
+#artistTitle,
+#mapTitle {
     text-align: center;
     font-size: 35px;
     color: #ffffffa0;
@@ -148,17 +176,21 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
 .resultBtn {
     margin: 12px;
 }
+
 .resultBox {
     height: 120px;
     background: #00000080;
 }
+
 .resultImage {
     float: left;
     height: 120px;
 }
+
 .resultName {
     font-size: 42px;
     color: #fff;
@@ -166,23 +198,24 @@ body {
     padding-top: 42px;
 }
 
-
-
 #artist {
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
+
 .artistTitle2 {
     text-align: center;
     font-size: 35px;
     color: #ffffff;
     margin-top: 36px;
 }
+
 .artistBox {
     background: #00000080;
     margin: 24px;
 }
+
 .artistBoxSmall {
     background: #00000080;
     padding: 12px;
@@ -191,6 +224,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
 .artistBoxMedium {
     background: #00000080;
     padding: 12px;
@@ -199,10 +233,12 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
 #artistImage {
     float: left;
     height: 300px;
 }
+
 #artistName {
     font-size: 42px;
     color: #fff;
@@ -218,10 +254,12 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
 .artistTrackImage {
     float: left;
     height: 64px;
 }
+
 .artistTrackName {
     font-size: 21px;
     color: #fff;
@@ -232,14 +270,17 @@ body {
     padding-bottom: 16px;
 }
 
-.venueFix, .linkFix {
+.venueFix,
+.linkFix {
     background: #ffffff20;
-    width: 752px;
+    width: 100%;
     height: 64px;
     margin-left: auto;
     margin-right: auto;
 }
-.artistVenueText, .artistLinkText {
+
+.artistVenueText,
+.artistLinkText {
     text-align: center;
     font-size: 21px;
     color: #fff;
@@ -249,21 +290,18 @@ body {
     padding-top: 16px;
     padding-bottom: 16px;
 }
-    
-
 
 #map {
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
+
 #mapBox {
     height: 480px;
     background: #00000080;
     margin: 24px;
 }
-
-
 
 nav {
     font-size: 21px;
@@ -278,6 +316,7 @@ nav {
     color: #fff;
     background: #404040;
 }
+
 #navBar {
     width: 960px;
     margin-left: auto;
@@ -288,8 +327,6 @@ nav {
     max-height: 80px;
     margin-top: 8px;
 }
-
-
 
 .wrapper {
     min-height: 100%;
@@ -305,16 +342,19 @@ footer {
     color: #fff;
     background: #202020;
 }
+
 .footer {
     width: 960px;
     margin-left: auto;
     margin-right: auto;
 }
+
 .footer p {
     font-size: 21px;
     float: left;
     margin: 8px;
 }
+
 .footer img {
     float: right;
     margin-left: 32px;

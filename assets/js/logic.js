@@ -195,10 +195,10 @@ $(document).on("click", "#searchButton2", searchStart);
 
 var songkickArtistID, venue, venueLat, venueLng, city, date, venueLocation;
 
-
 function getArtistID() {
-
-    // Querying the songkick api for the selected artist
+    //  Example ARTIST for testing purposes until artistName variable is linked to a searched result.
+    artistName = "Maroon 5"
+        // Querying the songkick api for the selected artist
     let songkickArtistURL = "https://api.songkick.com/api/3.0/search/artists.json?apikey=fsP4jkGr6vQE1jDS&query=" + artistName;
 
     $.ajax({
@@ -246,7 +246,8 @@ function searchUpcoming() {
             console.log("Lat: " + venueLat);
             console.log("Lng: " + venueLng);
 
-            $("#shows").append('<div class="showInfo" location="' + venue + '">' + venue + ' - ' + city + ' - ' + showDate + '</div>')
+            $('.artistBoxMedium').append('<div class="venueFix"><a class ="artistVenueBtn" href ="#" ><p class ="artistVenueText" id ="venue1" >' + showDate + ' - ' + venue + ' - ' + city + '</p></a></div>')
+
 
         }
     });
@@ -273,9 +274,8 @@ function initialize() {
     infowindow = new google.maps.InfoWindow();
 
     // Create the search box and link it to the UI element.
-    var input = document.getElementById('pac-input');
+    var input = document.getElementById('searchTxtMap');
     var searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.
@@ -377,3 +377,7 @@ function createMarker(place) {
         infowindow.open(map, this);
     });
 }
+
+
+
+getArtistID();
