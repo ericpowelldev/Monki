@@ -1,3 +1,127 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Spotify //
+
+// var clientSecret = '8238cc51bc5b44d08a898fee93208f2a'; // Unknown what this actually does
+
+// Global Variables
+var queryURL = 'https://api.spotify.com/v1/';
+
+var userInput = ''; // User input from search bar
+var getID = ''; // Generated ID for search result
+var getName = ''; // Generated name for search result
+
+var artistName = ''; // Artist name generated after result click
+var artistImage = ''; // Artist image generated after result click
+var artistWebLink = ''; // Artist web link generated after result click
+var artistAppLink = ''; // Artist app link generated after result click
+
+// Global track variables go here...
+
+var albumName = ''; // Most recent album name
+var albumImage = ''; // Most recent album image
+var albumWebLink = ''; // Most recent album web link
+var albumAppLink = ''; // Most recent album app link
+
+
+
+function spotifyLogin() {
+    var clientId = 'ade24c3ebf1f4fe9929161afd7003c01'; // from https://developer.spotify.com/dashboard/applications
+    var callbackURL = window.location.href; // the current web page
+    spotify.login(clientId, callbackURL);
+}
+function spotifyLogout() {
+    spotify.logout();
+}
+
+
+
+function getResultClick() {
+    getID = data.artist.items[$(this.attr("value"))].id;
+    getName = data.artist.items[$(this.attr("data-name"))].name;
+}
+
+
+
+function getSearch() {
+    userInput = $("#searchBar").val().trim();
+    $('#results').empty();
+    spotify.call(
+        `${queryURL}search`,
+        { q: userInput, type: 'artist', market: 'US', limit: '20', offset: '0' },
+        callSearch
+    );
+}
+function getArtist() {
+    $('#artist').empty();
+    spotify.call(
+        `${queryURL}artists/${artistID}`, // JSON for specified artist
+        { market: 'US' },
+        callArtist
+    );
+}
+function getTracks() {
+    $('#tracks').empty();
+    spotify.call(
+        `${queryURL}artists/${artistID}/top-tracks`, // JSON for specified artist's "Top-Tracks"
+        { market: 'US' },
+        callTracks
+    );
+}
+function getAlbum() {
+    $('#album').empty();
+    spotify.call(
+        `${queryURL}artists/${artistID}/albums`, // JSON for specified artist's "Albums"
+        { market: 'US' },
+        callAlbum
+    );
+}
+
+
+
+function callSearch(data) {
+    console.log(data); // Full Data List
+
+    for(var i = 0; i < 20; i++) {
+        if (data.artist.items[i] !== undefined) {
+            var newSearchLink = $(`<a href="artists.html" value="${i}">`);
+            var newSearchDiv = $(`<div class="searchDiv">`);
+            var newSearchImage = $(`<img src="${data.artist.items[i].images[0].url}" class="searchImage">`);
+            var newSearchName = $(`<p class="searchName">`);
+            newSearchName.text(data.artist.items[i].name);
+            newSearchDiv.append(newSearchImage);
+            newSearchDiv.append(newSearchName);
+            newSearchLink.append(newSearchDiv);
+            $("#results").append(newSearchLink);
+        }
+    }
+}
+function callArtist(artistData) {
+    console.log(artistData); // Full artistData List
+
+    artistName = artistData.name;
+    artistImage = artistData.images[0].url;
+    artistWebLink = artistData.external_urls.spotify;
+    artistAppLink = artistData.uri;
+}
+function callTracks(trackData) {
+    console.log(trackData); // Full trackData List
+
+    // Track variables and widgets go here...
+}
+function callAlbum(albumData) {
+    console.log(albumData); // Full albumData List
+
+    // Most recent album and widget goes here...
+
+    albumName = albumData.name;
+    albumImage = albumData.images[0].url;
+    albumWebLink = albumData.external_urls.spotify;
+    albumAppLink = albumData.uri;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Google Maps //
+
 var map;
 var service;
 var infowindow;
