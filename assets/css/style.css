@@ -18,7 +18,24 @@ body {
     margin: auto;
     width: 35%;
     margin-bottom: 100px;
-    /* background-color: rgba(255, 255, 255, 0.25); */
+}
+
+div#signIn{
+    width: 90%;
+}
+
+button#spotify-button{
+    float: right;
+    margin-top: 20px;
+    height: 40px;
+    font-family: "Play", sans-serif;
+    font-size: 20px;
+    background-color: inherit;
+    border-radius: 25px;
+    border-color: antiquewhite;
+    padding: 7px;
+    border-style: solid;
+    color: aliceblue;
 }
 
 #main-logo{
@@ -110,6 +127,8 @@ a {
     color: black;
     cursor: pointer;
     text-decoration: none;
+    max-height: inherit;
+    float: left;
 }
 
 #pac-input{
@@ -191,20 +210,31 @@ div#artistAlbum{
     margin-top: 0px;
 }
 
-#tracksText{
-height: 40px;
-float: left;
+div#text-container{
+    width: 60%;
+    margin: auto;
 }
 
-#albumText{
-height: 40px;
-float: right;
+div#tracksText{
+    height: 40px;
+    float: left;
 }
 
-#clear{
-clear: both;
-overflow: auto;
-height: 40px;
+div#albumText{
+    height: 40px;
+    float: right;
+}
+
+div#clear{
+    clear: both;
+    overflow: auto;
+    height: 60px;
+    padding-top: 30px;
+} 
+
+div#linksText{
+    height: 60px;
+    padding-top: 25px;
 }
 
 div#shows{
