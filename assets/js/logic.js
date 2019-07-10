@@ -254,7 +254,7 @@ function searchUpcoming() {
             console.log("Lat: " + venueLat);
             console.log("Lng: " + venueLng);
 
-            $('.artistBoxMedium').append('<div class="artistVenueBtn"><p class ="artistVenueText">' + showDate + ' - ' + venue + ' - ' + city + '</p></div>')
+            $('#venues').append('<div class="artistVenueBtn"><p class ="artistVenueText">' + showDate + ' - ' + venue + ' - ' + city + '</p></div>')
 
 
         }
