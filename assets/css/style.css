@@ -187,7 +187,7 @@ body {
     background: #00000080;
     padding: 12px;
     margin: 24px;
-    width: 600px;
+    width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -195,7 +195,7 @@ body {
     background: #00000080;
     padding: 12px;
     margin: 24px;
-    width: 800px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -213,7 +213,7 @@ body {
 
 .trackFix {
     background: #ffffff20;
-    width: 552px;
+    width: 752px;
     height: 64px;
     margin-left: auto;
     margin-right: auto;
@@ -232,12 +232,13 @@ body {
     padding-bottom: 16px;
 }
 
-.venueFix, .linkFix {
+.artistVenueBtn, .artistLinkBtn {
     background: #ffffff20;
-    width: 752px;
+    width: 100%;
     height: 64px;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
 }
 .artistVenueText, .artistLinkText {
     text-align: center;
