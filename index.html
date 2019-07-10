@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-<!-- Start Head of Document -->
-
+<!-- ///////////////////////////// Start Head of Document ///////////////////////////// -->
 <head>
 
   <!-- META -->
@@ -11,63 +10,250 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <!-- Tab Title -->
-  <title>Monki</title>
-
-  <!-- Custom CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-  <!-- Google FONTS -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 
-  <!-- Favicon -->
-  <link rel="icon" href="assets/images/favicon.png"/>
+  <!-- Favicon & Tab Title -->
+  <link rel="icon" href="assets/images/favicon.ico"/>
+  <title>Monki</title>
 
+  <!-- Remove underline from all hyperlinks -->
+  <style>a{text-decoration: none;}</style>
 
 </head>
 
-
-
-<!-- Start Body of Document -->
-
+<!-- ///////////////////////////// Start Body of Document ///////////////////////////// -->
 <body>
-  <div id="signIn">
-    <button id="spotify-button">Sign Into Spotify</button>
-  </div>
 
-  <div id="index-container">
-    <img src="assets/images/monki_textLogo.png" id="main-logo">
-    <form>
-      <input type="text" placeholder="Search For Artists" id="artist" name="user-artist">
-      <input type="submit" value="Search" id="submit-button">
-    </form>
+<!-- NavBar -->
+<nav id="nav">
+    <div id="navBar">
+        <a id="navBtn" href="#">
+            <img id="navIcon" src="assets/images/monki_nav.png">
+        </a>
+        <div id="searchBoxNav">
+            <input id="searchTxtNav" type="text" name="" placeholder="Search for a band">
+            <a id="searchBtnNav" href="#">
+                <img src="assets/images/searchBtnNav.png">
+            </a>
+        </div>
+        <div id="searchBoxMap">
+            <input id="searchTxtMap" type="text" name="" placeholder="Search for an area or ZIP code">
+            <a id="searchBtnMap" href="#">
+                <img src="assets/images/searchBtnNav.png">
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- Wrapper for Sticky Footer -->
+<div class="wrapper">
+
+<!-- Home Page -->
+<div id="homePage">
+    <button id="loginBtn">Login to Spotify</button>
+    <img id="homeLogo" src="assets/images/monki_logo.png">
+    <div id="searchBox">
+        <input id="searchTxt" type="text" name="" placeholder="Search for a band">
+        <a id="searchBtn" href="#">
+            <img src="assets/images/searchBtn.png">
+        </a>
+    </div>
+    <p id="homeDiscover"><a id="mapBtn" href="#"><u>Click here</u></a> to discover local venues.</p>
     <br>
-    <a href="venues.html"><span id="venues-link">Click Here for Local Venues</span></a>
+    <br>
+</div>
 
-  </div>
+<!-- Search Result Page -->
+<div id="resultPage">
+    <div id="results">
+        <br>
+        <br>
+        <br>
+        <br>
+        <p id="resultTitle">Artist results for "Led Zeppelin"</p>
+        <a class="resultBtn" href="#" value="0">
+            <div class="resultBox">
+                <img class="resultImage" src="assets/images/zep.jpg">
+                <p class="resultName">Led Zeppelin</p>
+            </div>
+        </a>
+    </div>
+    <br>
+</div>
 
-  <!-- Reference to make Spotify work -->
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="assets/js/spotify.js"></script>
+<!-- Artist Page -->
+<div id="artistPage">
+    <div id="artist">
+        <br>
+        <br>
+        <br>
+        <br>
+        <p id="artistTitle">Artist page for "Led Zeppelin"</p>
+        <div class="artistBox">
+            <img id="artistImage" src="assets/images/zep.jpg">
+            <p id="artistName">Led Zeppelin</p>
+        </div>
+        <p class="artistTitle2">Top Tracks</p>
+        <div class="artistBoxSmall" id="tracks">
+            <div class="trackFix">
+                <a class="artistTrackBtn" href="#">
+                    <img class="artistTrackImage" id="trackImage1" src="assets/images/zep.jpg">
+                    <p class="artistTrackName" id="trackName1">Immigrant Song</p>
+                </a>
+            </div>
+            <div class="trackFix">
+                <a class="artistTrackBtn" href="#">
+                    <img class="artistTrackImage" id="trackImage2" src="assets/images/zep.jpg">
+                    <p class="artistTrackName" id="trackName2">Stairway to Heaven</p>
+                </a>
+            </div>
+            <div class="trackFix">
+                <a class="artistTrackBtn" href="#">
+                    <img class="artistTrackImage" id="trackImage3" src="assets/images/zep.jpg">
+                    <p class="artistTrackName" id="trackName3">Whole Lotta Love</p>
+                </a>
+            </div>
+            <div class="trackFix">
+                <a class="artistTrackBtn" href="#">
+                    <img class="artistTrackImage" id="trackImage4" src="assets/images/zep.jpg">
+                    <p class="artistTrackName" id="trackName4">Black Dog</p>
+                </a>
+            </div>
+            <div class="trackFix">
+                <a class="artistTrackBtn" href="#">
+                    <img class="artistTrackImage" id="trackImage5" src="assets/images/zep.jpg">
+                    <p class="artistTrackName" id="trackName5">Good Times Bad Times</p>
+                </a>
+            </div>
+            <div class="trackFix">
+                <a class="artistTrackBtn" href="#">
+                    <img class="artistTrackImage" id="trackImage6" src="assets/images/zep.jpg">
+                    <p class="artistTrackName" id="trackName6">Ramble On</p>
+                </a>
+            </div>
+            <div class="trackFix">
+                <a class="artistTrackBtn" href="#">
+                    <img class="artistTrackImage" id="trackImage7" src="assets/images/zep.jpg">
+                    <p class="artistTrackName" id="trackName7">Kashmir</p>
+                </a>
+            </div>
+            <div class="trackFix">
+                <a class="artistTrackBtn" href="#">
+                    <img class="artistTrackImage" id="trackImage8" src="assets/images/zep.jpg">
+                    <p class="artistTrackName" id="trackName8">Rock and Roll</p>
+                </a>
+            </div>
+            <div class="trackFix">
+                <a class="artistTrackBtn" href="#">
+                    <img class="artistTrackImage" id="trackImage9" src="assets/images/zep.jpg">
+                    <p class="artistTrackName" id="trackName9">Going to California</p>
+                </a>
+            </div>
+            <div class="trackFix">
+                <a class="artistTrackBtn" href="#">
+                    <img class="artistTrackImage" id="trackImage10" src="assets/images/zep.jpg">
+                    <p class="artistTrackName" id="trackName10">Babe I'm Gonna Leave You - 1990 Remaster</p>
+                </a>
+            </div>
+        </div>
+        <p class="artistTitle2">Upcoming Shows</p>
+        <div class="artistBoxMedium" id="venues">
+            <div class="venueFix">
+                <a class="artistVenueBtn" href="#">
+                    <p class="artistVenueText" id="venue1">07/04/1969 - Madison Square Garden @ 7:00 PM</p>
+                </a>
+            </div>
+            <div class="venueFix">
+                <a class="artistVenueBtn" href="#">
+                    <p class="artistVenueText" id="venue2">07/04/1969 - Madison Square Garden @ 7:00 PM</p>
+                </a>
+            </div>
+            <div class="venueFix">
+                <a class="artistVenueBtn" href="#">
+                    <p class="artistVenueText" id="venue3">07/04/1969 - Madison Square Garden @ 7:00 PM</p>
+                </a>
+            </div>
+            <div class="venueFix">
+                <a class="artistVenueBtn" href="#">
+                    <p class="artistVenueText" id="venue4">07/04/1969 - Madison Square Garden @ 7:00 PM</p>
+                </a>
+            </div>
+            <div class="venueFix">
+                <a class="artistVenueBtn" href="#">
+                    <p class="artistVenueText" id="venue5">07/04/1969 - Madison Square Garden @ 7:00 PM</p>
+                </a>
+            </div>
+        </div>
+        <p class="artistTitle2">Spotify Links</p>
+        <div class="artistBoxMedium" id="links">
+            <div class="linkFix">
+                <a class="artistLinkBtn" href="#">
+                    <p class="artistLinkText" id="linkWeb">Link to Artist's Spotify Page (Web)</p>
+                </a>
+            </div>
+            <div class="linkFix">
+                <a class="artistLinkBtn" href="#">
+                    <p class="artistLinkText" id="linkApp">Link to Artist's Spotify Page (Desktop)</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
 
-  <!-- JQuery-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Map Page -->
+<div id="mapPage">
+    <div id="map">
+        <br>
+        <br>
+        <br>
+        <br>
+        <p id="mapTitle">Location results for "23112"</p>
+        <div id="mapBox"></div>
+        <div id="searchBoxAmount">
+            <input id="searchTxtAmount" type="text" name="" placeholder="Result amount (25)">
+            <a id="searchBtnAmount" href="#">
+                <img src="assets/images/searchBtn.png">
+            </a>
+        </div>
+    </div>
+    <br>
+</div>
 
-  <!-- External JS -->
-  <script src="assets/js/logic.js"></script>
+<!-- Pusher for Sticky Footer -->
+<div class="pusher"></div>
 
-  <!-- Google Maps API with Places Library-->
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_WEvmnWjkNFyvAaYYfsxqsAAUhCNNaPM&libraries=places&callback=initialize"
-    async defer></script>
+</div>
 
+<!-- Footer -->
+<footer>
+    <div class="footer">
+        <p>&copy;2019 The Swamp Monkeys</p>
+        <a href="https://www.google.com/maps">
+            <img src="assets/images/google.png" style="max-height: 44px; margin-top: 1px;">
+        </a>
+        <a href="https://www.songkick.com/">
+            <img src="assets/images/songkick.png" style="max-height: 32px; margin-top: 8px;">
+        </a>
+        <a href="https://www.spotify.com/us/">
+            <img src="assets/images/spotify.png" style="max-height: 40px; margin-top: 3px;">
+        </a>
+    </div>
+</footer>
 
+<!-- JavaScript Reference -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script type="text/javascript" src="assets/js/spotify.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="assets/js/logic.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_WEvmnWjkNFyvAaYYfsxqsAAUhCNNaPM&libraries=places&callback=initialize" async defer></script>
 
 </body>
-
-
 
 </html>
