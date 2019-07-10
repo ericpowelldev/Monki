@@ -145,7 +145,7 @@ function callSearch(data) {
     // Loop to create search results & links
     for (var i = 0; i < 20; i++) {
         if (data.artist.items[i] !== undefined) {
-            var newSearchLink = $(`<a href="artists.html" value="${i}">`);
+            // var newSearchLink = $(`<a href="artists.html" value="${i}">`);
             var newSearchDiv = $(`<div class="resultBox">`);
             var newSearchImage = $(`<img src="${data.artist.items[i].images[0].url}" class="resultImage">`);
             var newSearchName = $(`<p class="resultName">`);
@@ -153,7 +153,7 @@ function callSearch(data) {
             newSearchDiv.append(newSearchImage);
             newSearchDiv.append(newSearchName);
             newSearchLink.append(newSearchDiv);
-            $("#results").append(newSearchLink);
+            // $("#results").append(newSearchLink);
         }
     }
 }
@@ -194,6 +194,11 @@ $(document).on("click", "#searchButton2", searchStart);
 // Song Kick //
 
 var songkickArtistID, venue, venueLat, venueLng, city, date, venueLocation;
+
+$('.resultBox').on('click', )
+
+
+
 
 function getArtistID() {
     //  Example ARTIST for testing purposes until artistName variable is linked to a searched result.
@@ -246,13 +251,17 @@ function searchUpcoming() {
             console.log("Lat: " + venueLat);
             console.log("Lng: " + venueLng);
 
-            $('.artistBoxMedium').append('<div class="venueFix"><a class ="artistVenueBtn" href ="#" ><p class ="artistVenueText" id ="venue1" >' + showDate + ' - ' + venue + ' - ' + city + '</p></a></div>')
+            $('#venues').append('<div class="venueFix"><p class ="artistVenueText">' + showDate + ' - ' + venue + ' - ' + city + '</p></div>');
 
 
         }
     });
 }
 
+
+function showVenueMap() {
+    hideHTML();
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Google Maps //
