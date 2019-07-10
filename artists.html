@@ -5,25 +5,28 @@
 
 <head>
 
+
   <!-- META -->
   <meta charset="UTF-8">
   <meta http-equiv="refresh" content="-1;url=#" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <!-- Tab Title -->
-  <title>Monki</title>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Tab Title -->
+    <title>Monki</title>
 
-  <!-- Google FONTS -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-  <!-- Favicon -->
-  <link rel="icon" href="assets/images/favicon.png"/>
+    <!-- Google FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.png" />
+
 
 
 </head>
@@ -34,49 +37,62 @@
 
 <body>
 
-  <header>
-    
-    <span id="logo-container">
-      <img src="assets/images/monki_nav.png" id="logo" alt="logo">
-    </span>
-    <nav>
-      <ul>
-        <li id="link2"><a href="index.html">Artist</a></li>
-        <li id="link3"><a href="venues.html">Venues</a></li>
-      </ul>
-    </nav>
-    
-  </header>
-  <div id="all">
-    
-        <input id="pac-input" class="controls" type="text" placeholder="Search Here">
-        <div id="map" class="feature"></div>
-      
-      <div id="columns">
-        <div id="col-one"></div>
-        <div id="col-two"></div>
-        <div id="col-three"></div>
-      </div>
-  
-    </div>
+    <header>
+        <div id="header-container">
+            <span id="logo-container">
+                <img src="assets/images/monki_nav.png" id="logo" alt="logo">
+            </span>
+            <nav>
+                <form id="nav-form">
+                    <input type="text" placeholder="Search For Artists" id="artist" name="user-artist">
+                    <input type="submit" value="Search" id="submit-button2">
+                </form>
+            </nav>
+        </div>
+    </header>
+    <div id="artist-info">
+        <div id="artist-container" class="searchDiv">
+            <img src="assets/images/300.png" class="searchImage">
+            <p class="searchName">Somebody</p>
+        </div>
 
+        <div id="artist-album-track">
+            <!-- <div id="tracksText">
+            Top Tracks</div> -->
+            <div id="artistTracks" class="feature"></div>
+            <!-- <div id="albumText">
+            Latest Album</div> -->
+            <div id="artistAlbum" class="feature"></div>
+        </div>
+        <div id="clear">
+            Upcoming Shows And Locations
+        </div>
+        <div id="shows" class="feature">
+            <div id="upcoming1" class="showInfo">SHOW LOCATION TIME</div>
+            <div id="upcoming2" class="showInfo">SHOW LOCATION TIME</div>
+            <div id="upcoming3" class="showInfo">SHOW LOCATION TIME</div>
+            <div id="upcoming4" class="showInfo">SHOW LOCATION TIME</div>
+            <div id="upcoming5" class="showInfo">SHOW LOCATION TIME</div>
+        </div>
+
+        Spotify Links
+        <div id="spotifyLinks">
+            <div id="spotifyLink1" class="feature"></div>
+            <div id="spotifyLink1" class="feature"></div>
+        </div>
+  </div>
+      
   <!-- Reference to make Spotify work -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script type="text/javascript" src="assets/js/spotify.js"></script>
-  
-  <!-- JQuery-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-  <!-- External JS -->
-  <script src="assets/js/logic.js"></script>
-
-  <!-- Google Maps API with Places Library-->
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_WEvmnWjkNFyvAaYYfsxqsAAUhCNNaPM&libraries=places&callback=initialize"
-    async defer></script>
 
 
+    <!-- JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- External JS -->
+    <script src="assets/js/logic.js"></script>
 
 </body>
 
