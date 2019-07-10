@@ -120,19 +120,19 @@ a {
     padding-left:5px;
 }
 
-.return-div{
+.searchDiv{
     background-color: rgba(42, 33, 23, 0.5);
     border-style: groove;
     border-color: antiquewhite;
     border-width: 10px;
     margin-bottom: 20px;
     color: darkorange;
+    max-height: 200px;
+    overflow: hidden;
 }
 
 div#artist-container{
     margin-top: 120px;
-    max-height: 200px;
-    overflow: hidden;
 }
 
 #results{
@@ -140,14 +140,14 @@ div#artist-container{
     margin: auto;
 }
 
-img#artist-img{
+img.searchImage{
     float: left;
     margin-left: 0px;
     max-height: 150px;
     max-width: 150px;
 }
 
-p#artist-snippet{
+p.searchName{
     font-size: 40px;
     margin-top: 40px;
     line-height: normal;
@@ -161,9 +161,71 @@ p#artist-snippet{
     border-color: white;
     border-width: 10px;
     border-radius: 5px;
-    background-color: rgba(15, 15, 15, 0.87);
+    background-color: rgba(42, 33, 23, 0.5);
     padding: 10px;
     font-size: 20px;
+}
+
+div#artist-info{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+div#artist-album-track{
+    width: 100%;
+    height: 250px;
+}
+
+div#artistTracks{
+    float:left;
+    height: 250px;
+    width: 49%;
+    margin-top: 0px;
+}
+
+div#artistAlbum{
+    float:right;
+    height: 250px;
+    width: 49%;
+    margin-top: 0px;
+}
+
+#tracksText{
+height: 40px;
+float: left;
+}
+
+#albumText{
+height: 40px;
+float: right;
+}
+
+#clear{
+clear: both;
+overflow: auto;
+height: 40px;
+}
+
+div#shows{
+margin-top: 20px;
+}
+
+div.showInfo{
+    background-color: rgba(42, 33, 23, 0.5);
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10%;
+    padding: 5px;
+
+}
+
+div#spotifyLinks{
+    width: 80%;
+    height: 40px;
+    margin: auto;
 }
 
 #col-one {
