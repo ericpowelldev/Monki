@@ -1,5 +1,6 @@
 // HTML Handler //
 pageHome();
+
 function hideHTML() {
     $("#nav").hide();
     $("#homePage").hide();
@@ -7,30 +8,36 @@ function hideHTML() {
     $("#artistPage").hide();
     $("#mapPage").hide();
 }
+
 function navSearch() {
     $("#nav").show();
     $("#searchBoxNav").show();
     $("#searchBoxMap").hide();
 }
+
 function navMap() {
     $("#nav").show();
     $("#searchBoxNav").hide();
     $("#searchBoxMap").show();
 }
+
 function pageHome() {
     hideHTML();
     $("#homePage").show();
 }
+
 function pageResult() {
     hideHTML();
     navSearch();
     $("#resultPage").show();
 }
+
 function pageArtist() {
     hideHTML();
     navSearch();
     $("#artistPage").show();
 }
+
 function pageMap() {
     hideHTML();
     navMap();
@@ -75,6 +82,7 @@ function spotifyLogin() {
     var callbackURL = window.location.href; // the current web page
     spotify.login(clientId, callbackURL);
 }
+
 function spotifyLogout() {
     spotify.logout();
 }
@@ -93,15 +101,16 @@ function searchStart(event) {
     userInput = $("#searchText").val().trim();
     location.href = "results.html";
 }
+
 function getSearch(event) {
     console.log(userInput);
     $('#results').empty();
     spotify.call(
-        `${queryURL}search`,
-        { q: userInput, type: 'artist', market: 'US', limit: '20', offset: '0' },
+        `${queryURL}search`, { q: userInput, type: 'artist', market: 'US', limit: '20', offset: '0' },
         callSearch
     );
 }
+
 function getArtist() {
     $('#artist').empty();
     spotify.call(
@@ -110,6 +119,7 @@ function getArtist() {
         callArtist
     );
 }
+
 function getTracks() {
     $('#tracks').empty();
     spotify.call(
@@ -118,6 +128,7 @@ function getTracks() {
         callTracks
     );
 }
+
 function getAlbum() {
     $('#album').empty();
     spotify.call(
@@ -132,7 +143,7 @@ function getAlbum() {
 function callSearch(data) {
     console.log(data); // Full Data List
     // Loop to create search results & links
-    for(var i = 0; i < 20; i++) {
+    for (var i = 0; i < 20; i++) {
         if (data.artist.items[i] !== undefined) {
             var newSearchLink = $(`<a href="artists.html" value="${i}">`);
             var newSearchDiv = $(`<div class="resultBox">`);
@@ -146,6 +157,7 @@ function callSearch(data) {
         }
     }
 }
+
 function callArtist(artistData) {
     console.log(artistData); // Full artistData List
 
@@ -154,11 +166,13 @@ function callArtist(artistData) {
     artistWebLink = artistData.external_urls.spotify;
     artistAppLink = artistData.uri;
 }
+
 function callTracks(trackData) {
     console.log(trackData); // Full trackData List
 
     // Track variables and widgets go here...
 }
+
 function callAlbum(albumData) {
     console.log(albumData); // Full albumData List
 
@@ -175,12 +189,74 @@ $(document).on("click", "#logoutButton", spotifyLogout);
 $(document).on("click", "#searchButton", searchStart);
 $(document).on("click", "#searchButton2", searchStart);
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Song Kick //
+
+var songkickArtistID, venue, venueLat, venueLng, city, date, venueLocation;
+
+
+function getArtistID() {
+
+    // Querying the songkick api for the selected artist
+    let songkickArtistURL = "https://api.songkick.com/api/3.0/search/artists.json?apikey=fsP4jkGr6vQE1jDS&query=" + artistName;
+
+    $.ajax({
+        url: songkickArtistURL,
+        method: "GET"
+    }).then(function(response) {
+
+        songkickArtistID = response.resultsPage.results.artist[0].id;
+        searchUpcoming();
+        console.log(songkickArtistID);
+    });
+}
+
+
+function searchUpcoming() {
+
+    // Searching upcoming events based on Songkick artist ID
+    let songkickUpcomingURL = "https://api.songkick.com/api/3.0/artists/" + songkickArtistID + "/calendar.json?apikey=fsP4jkGr6vQE1jDS";
+
+    $.ajax({
+        url: songkickUpcomingURL,
+        method: "GET"
+    }).then(function(response) {
+
+        console.log(response);
+
+        for (i = 0; i < response.resultsPage.results.event.length; i++) {
+
+            venue = response.resultsPage.results.event[i].venue.displayName;
+            venueLat = response.resultsPage.results.event[i].location.lat;
+            venueLng = response.resultsPage.results.event[i].location.lng;
+            city = response.resultsPage.results.event[i].location.city;
+            date = response.resultsPage.results.event[i].start.date;
+            venueLocation = {
+                lat: venueLat,
+                lng: venueLng
+            };
+
+            let newDate = new Date(date);
+            let showDate = (newDate.getMonth() + 1) + '/' + newDate.getDate() + '/' + newDate.getFullYear();
+
+            console.log("Venue: " + venue);
+            console.log("City: " + city);
+            console.log("Date: " + showDate);
+            console.log("Lat: " + venueLat);
+            console.log("Lng: " + venueLng);
+
+            $("#shows").append('<div class="showInfo" location="' + venue + '">' + venue + ' - ' + city + ' - ' + showDate + '</div>')
+
+        }
+    });
+}
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Google Maps //
 
-var map;
-var service;
-var infowindow;
+var map, service, infowindow;
 var markers = [];
 
 
