@@ -2,288 +2,324 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 24px;
-    line-height: 1.5rem;
-    color: whitesmoke;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 21px;
+    line-height: 1.5em;
     background-image: url(../images/background3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+}
+
+#loginBtn {
+    transition: 0.25s;
+    position: absolute;
+    right: 5%;
     text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 21px;
+    width: 240px;
+    height: 48px;
+    padding: 4px;
+    border: 4px solid #fff;
+    border-radius: 48px;
+    background: #ffffff00;
+    color: #fff;
+}
+#loginBtn:hover {
+    transition: 0.25s;
+    background: #fff;
+    color: #404040;
 }
 
-#index-container{
+#homeLogo {
+    display: block;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+}
+#homeDiscover {
+    text-align: center;
+    margin-top: 12px;
+    color: #fff;
+}
+#homeDiscover a {
+    transition: 0.25s;
+    color: #404040;
+}
+#homeDiscover a:hover {
+    color: #0080ff;
+}
+
+#searchBox:hover > #searchBtn img {
+    width: 72px;
+    height: 72px;
+}
+#searchBoxNav:hover > #searchBtnNav img {
+    width: 72px;
+    height: 72px;
+}
+#searchBoxMap:hover > #searchBtnMap img {
+    width: 72px;
+    height: 72px;
+}
+#searchBoxAmount:hover > #searchBtnAmount img {
+    width: 72px;
+    height: 72px;
+}
+
+#searchBox, #searchBoxNav, #searchBoxMap {
+    width: 800px;
+    height: 48px;
+    border-radius: 48px;
+}
+#searchBox {
+    background: #404040;
     margin: auto;
-    width: 35%;
-    margin-bottom: 100px;
 }
-
-div#signIn{
-    width: 90%;
-}
-
-button#spotify-button{
+#searchBoxNav, #searchBoxMap {
     float: right;
-    margin-top: 20px;
-    height: 40px;
-    font-family: "Play", sans-serif;
-    font-size: 20px;
-    background-color: inherit;
-    border-radius: 25px;
-    border-color: antiquewhite;
-    padding: 7px;
-    border-style: solid;
-    color: aliceblue;
+    background: #fff;
+    margin-top: 24px;
 }
-
-#main-logo{
-    width: 100%;
-}
-
-form{
-    width: 100%;
-}
-
-input#artist{
-    width: 100%;
-    height: 30px;
-    padding-left: 10px;
-    border-radius: 5px;
-}
-
-input[type="submit"]{
-    height: 30px;
-    width: 30%;
-    margin-left: 35%;
-    margin-right: 35%;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-span#venues-link{
-    color: whitesmoke;
-    text-decoration: none;
-    font-size: 20px;
-    margin-top: 20px;
-    
-}
-
-
-header {
-    background-color: #BCA285;
-    border-bottom: groove;
-    border-color: rgb(223, 76, 8);
-    border-width: 7px;
-    width: 100%;
-    margin-top: 0px;
-    left: 0px;
-    height: 96px;
-    position: fixed;
-    top: 0px;
-}
-
-#header-container{
-    width: 80%;
-    margin: auto;
-    margin-top: 0px;
-    height: 96px;
-}
-
-#nav-form {
-    width: 85%;
-    float: right;
-    margin-top: 27px;
-    display: inline-flex;
-}
-
-input#submit-button2{
-    height: 30px;
-    width: 20%;
-    margin-left: 10px;
-    margin-right: 0px;
-    border-radius: 5px;
-    margin-top: 0px;
-}
-
-#logo-container {
-    float: left;
-    max-height: 70px;
-    width: 15%;
-    margin-top: 10px;
-}
-
-#all {
-    margin-bottom: 100px;
-    margin-top: 125px;
-}
-
-#logo {
-    max-height: inherit;
-}
-
-a {
-    color: black;
-    cursor: pointer;
-    text-decoration: none;
-    max-height: inherit;
-    float: left;
-}
-
-#pac-input{
-    height: 40px;
+#searchBoxAmount {
     width: 300px;
-    margin-top: 10px;
-    font-size: 18px;
-    padding-left:5px;
-}
-
-.searchDiv{
-    background-color: rgba(42, 33, 23, 0.5);
-    border-style: groove;
-    border-color: antiquewhite;
-    border-width: 10px;
-    margin-bottom: 20px;
-    color: darkorange;
-    max-height: 200px;
-    overflow: hidden;
-}
-
-div#artist-container{
-    margin-top: 120px;
-}
-
-#results{
-    width: 60%;
+    height: 48px;
+    border-radius: 48px;
+    background: #404040;
     margin: auto;
 }
 
-img.searchImage{
-    float: left;
-    margin-left: 0px;
-    max-height: 150px;
-    max-width: 150px;
+#searchTxt, #searchTxtNav, #searchTxtMap, #searchTxtAmount {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 12px;
+    margin-left: 12px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 21px;
+    transition: 0.25s;
+}
+#searchTxt {
+    color: #fff;
+    width: 720px;
+}
+#searchTxtNav, #searchTxtMap {
+    color: #404040;
+    width: 720px;
+}
+#searchTxtAmount {
+    color: #fff;
+    width: 220px;
 }
 
-p.searchName{
-    font-size: 40px;
-    margin-top: 40px;
-    line-height: normal;
-}
-
-.feature {
-    font-family: 'Play', sans-serif;
-    color: #FF981C;
-    margin-top: 14px;
-    border-style: groove;
-    border-color: white;
-    border-width: 10px;
-    border-radius: 5px;
-    background-color: rgba(42, 33, 23, 0.5);
-    padding: 10px;
-    font-size: 20px;
-}
-
-div#artist-info{
-    width: 80%;
-    margin: auto;
-    margin-bottom: 100px;
-}
-
-div#artist-album-track{
-    width: 100%;
-    height: 250px;
-}
-
-div#artistTracks{
-    float:left;
-    height: 250px;
-    width: 49%;
-    margin-top: 0px;
-}
-
-div#artistAlbum{
-    float:right;
-    height: 250px;
-    width: 49%;
-    margin-top: 0px;
-}
-
-div#text-container{
-    width: 60%;
-    margin: auto;
-}
-
-div#tracksText{
-    height: 40px;
-    float: left;
-}
-
-div#albumText{
-    height: 40px;
+#searchBtn, #searchBtnNav, #searchBtnMap, #searchBtnAmount {
     float: right;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#searchBtn img, #searchBtnNav img, #searchBtnMap img, #searchBtnAmount img {
+    transition: 0.25s;
+    width: 50px;
+    height: 50px;
 }
 
-div#clear{
-    clear: both;
-    overflow: auto;
-    height: 60px;
-    padding-top: 30px;
-} 
 
-div#linksText{
-    height: 60px;
-    padding-top: 25px;
+
+#resultTitle, #artistTitle, #mapTitle {
+    text-align: center;
+    font-size: 35px;
+    color: #ffffffa0;
 }
 
-div#shows{
-margin-top: 20px;
+#results {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-div.showInfo{
-    background-color: rgba(42, 33, 23, 0.5);
-    width: 80%;
-    margin-left: 10%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-right: 10%;
-    padding: 5px;
-
+.resultBtn {
+    margin: 12px;
 }
-
-div#spotifyLinks{
-    width: 80%;
-    height: 40px;
-    margin: auto;
+.resultBox {
+    height: 120px;
+    background: #00000080;
 }
-
-#col-one {
+.resultImage {
     float: left;
-    width: 32.5%;
+    height: 120px;
+}
+.resultName {
+    font-size: 42px;
+    color: #fff;
+    margin-left: 140px;
+    padding-top: 42px;
 }
 
-#col-two {
+
+
+#artist {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.artistTitle2 {
+    text-align: center;
+    font-size: 35px;
+    color: #ffffff;
+    margin-top: 36px;
+}
+.artistBox {
+    background: #00000080;
+    margin: 24px;
+}
+.artistBoxSmall {
+    background: #00000080;
+    padding: 12px;
+    margin: 24px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.artistBoxMedium {
+    background: #00000080;
+    padding: 12px;
+    margin: 24px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#artistImage {
     float: left;
-    width: 32.5%;
-    margin-left: 14px;
+    height: 300px;
+}
+#artistName {
+    font-size: 42px;
+    color: #fff;
+    margin-left: 340px;
+    padding-top: 135px;
+    padding-bottom: 134px;
 }
 
-#col-three {
-    float: left;
-    width: 32.5%;
-    margin-left: 13px;
+.trackFix {
+    background: #ffffff20;
+    width: 552px;
+    height: 64px;
+    margin-left: auto;
+    margin-right: auto;
 }
+.artistTrackImage {
+    float: left;
+    height: 64px;
+}
+.artistTrackName {
+    font-size: 21px;
+    color: #fff;
+    margin-left: 80px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.venueFix, .linkFix {
+    background: #ffffff20;
+    width: 752px;
+    height: 64px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.artistVenueText, .artistLinkText {
+    text-align: center;
+    font-size: 21px;
+    color: #fff;
+    margin-left: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+    
+
 
 #map {
-    height: inherit;
-    font-family: 'Play', sans-serif;
-    color: black;
-    background-color: rgba(15, 15, 15, 0.87);
-    overflow: auto;
-    clear: both;
-    width: 80%;
-    height: 350px;
-    margin: auto;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
+#mapBox {
+    height: 480px;
+    background: #00000080;
+    margin: 24px;
+}
+
+
+
+nav {
+    font-size: 21px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 96px;
+    padding: 0;
+    border: 0;
+    margin: 0 auto;
+    color: #fff;
+    background: #404040;
+}
+#navBar {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#navIcon {
+    max-height: 80px;
+    margin-top: 8px;
+}
+
+
+
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -72px;
+}
+
+footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 72px;
+    padding: 14px 0;
+    color: #fff;
+    background: #202020;
+}
+.footer {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.footer p {
+    font-size: 21px;
+    float: left;
+    margin: 8px;
+}
+.footer img {
+    float: right;
+    margin-left: 32px;
+}
+
+.pusher {
+    height: 72px;
 }

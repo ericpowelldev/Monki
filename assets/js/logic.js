@@ -1,3 +1,51 @@
+// HTML Handler //
+pageHome();
+function hideHTML() {
+    $("#nav").hide();
+    $("#homePage").hide();
+    $("#resultPage").hide();
+    $("#artistPage").hide();
+    $("#mapPage").hide();
+}
+function navSearch() {
+    $("#nav").show();
+    $("#searchBoxNav").show();
+    $("#searchBoxMap").hide();
+}
+function navMap() {
+    $("#nav").show();
+    $("#searchBoxNav").hide();
+    $("#searchBoxMap").show();
+}
+function pageHome() {
+    hideHTML();
+    $("#homePage").show();
+}
+function pageResult() {
+    hideHTML();
+    navSearch();
+    $("#resultPage").show();
+}
+function pageArtist() {
+    hideHTML();
+    navSearch();
+    $("#artistPage").show();
+}
+function pageMap() {
+    hideHTML();
+    navMap();
+    $("#mapPage").show();
+}
+
+$(document).on("click", "#navBtn", pageHome);
+$(document).on("click", "#searchBtn", pageResult);
+$(document).on("click", "#searchBtnNav", pageResult);
+$(document).on("click", "#searchBtnMap", pageMap);
+$(document).on("click", ".resultBtn", pageArtist);
+$(document).on("click", "#artistVenueBtn", pageMap);
+$(document).on("click", "#mapBtn", pageMap);
+$(document).on("click", "#loginBtn", spotifyLogin);
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Spotify //
 
@@ -22,8 +70,6 @@ var albumImage = ''; // Most recent album image
 var albumWebLink = ''; // Most recent album web link
 var albumAppLink = ''; // Most recent album app link
 
-
-
 function spotifyLogin() {
     var clientId = 'ade24c3ebf1f4fe9929161afd7003c01'; // from https://developer.spotify.com/dashboard/applications
     var callbackURL = window.location.href; // the current web page
@@ -42,8 +88,13 @@ function getResultClick() {
 
 
 
-function getSearch() {
-    userInput = $("#searchBar").val().trim();
+function searchStart(event) {
+    event.preventDefault();
+    userInput = $("#searchText").val().trim();
+    location.href = "results.html";
+}
+function getSearch(event) {
+    console.log(userInput);
     $('#results').empty();
     spotify.call(
         `${queryURL}search`,
@@ -80,13 +131,13 @@ function getAlbum() {
 
 function callSearch(data) {
     console.log(data); // Full Data List
-
+    // Loop to create search results & links
     for(var i = 0; i < 20; i++) {
         if (data.artist.items[i] !== undefined) {
             var newSearchLink = $(`<a href="artists.html" value="${i}">`);
-            var newSearchDiv = $(`<div class="searchDiv">`);
-            var newSearchImage = $(`<img src="${data.artist.items[i].images[0].url}" class="searchImage">`);
-            var newSearchName = $(`<p class="searchName">`);
+            var newSearchDiv = $(`<div class="resultBox">`);
+            var newSearchImage = $(`<img src="${data.artist.items[i].images[0].url}" class="resultImage">`);
+            var newSearchName = $(`<p class="resultName">`);
             newSearchName.text(data.artist.items[i].name);
             newSearchDiv.append(newSearchImage);
             newSearchDiv.append(newSearchName);
@@ -119,6 +170,11 @@ function callAlbum(albumData) {
     albumAppLink = albumData.uri;
 }
 
+$(document).on("click", "#loginButton", spotifyLogin);
+$(document).on("click", "#logoutButton", spotifyLogout);
+$(document).on("click", "#searchButton", searchStart);
+$(document).on("click", "#searchButton2", searchStart);
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Google Maps //
 
@@ -133,7 +189,7 @@ function initialize() {
     // Starting map location is set to New York, NY.  This can be changed.
     var startingMap = new google.maps.LatLng(40.713, -74.006);
     //  Grabing Map div on DOM and filling with a default map location.
-    map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('mapBox'), {
         center: startingMap,
         zoom: 12
     });
