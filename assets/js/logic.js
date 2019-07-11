@@ -105,8 +105,8 @@ function spotifyResult(data) {
     // Loop to create search results & links
     for (var i = 0; i < 20; i++) {
         if (data.artists.items[i] !== undefined && data.artists.items[i].images.length !== 0) {
-            var newSearchLink = $(`<a class="resultBtn" href="#" data-id="${data.artists.items[i].id}" data-name="${data.artists.items[i].name}">`);
-            var newSearchDiv = $(`<div class="resultBox">`);
+            var newSearchLink = $(`<a class="resultBtn" href="#">`);
+            var newSearchDiv = $(`<div class="resultBox" data-name="${data.artists.items[i].name}" data-id="${data.artists.items[i].id}">`);
             var newSearchImage = $(`<img src="${data.artists.items[i].images[0].url}" class="resultImage">`);
             var newSearchName = $(`<p class="resultName">`);
             newSearchName.text(data.artists.items[i].name);
@@ -124,14 +124,19 @@ function spotifyResult(data) {
 
     // Show HTML
     showResult();
+
+    $(".resultBox").on("click", artistPage);
+
 }
 
 /////////////////////// ARTIST PAGE ///////////////////////
 function artistPage() {
     // Get Spotify artist ID & artist name
     spotifyID = $(this).attr("data-id");
-
+    console.log(spotifyID);
     artistName = $(this).attr("data-name");
+    console.log(artistName);
+    getArtistID();
 
     // Call Spotify artist & top-tracks
     spotify.call(
@@ -144,6 +149,7 @@ function artistPage() {
         { market: 'US' },
         spotifyTrack
     );
+
 }
 
 function spotifyArtist(artistData) {
@@ -185,15 +191,16 @@ function spotifyTrack(trackData) {
 /////////////////////// MAP PAGE ///////////////////////
 function mapPage() {
     showMap();
+    initialize();
 }
 
 $(document).on("click", "#navBtn", showHome);
 $(document).on("click", "#searchBtn", homeSearch);
 $(document).on("click", "#searchBtnNav", navSearch);
 $(document).on("click", "#searchBtnMap", mapPage);
-$(document).on("click", ".resultBtn", artistPage);
 $(document).on("click", "#mapBtn", mapPage);
 $(document).on("click", "#loginBtn", spotifyLogin);
+$(document).on("click", ".artistVenueBtn", showVenue);
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -220,6 +227,8 @@ function getArtistID() {
 
 function searchUpcoming() {
 
+    $('#venues').empty();
+
     // Searching upcoming events based on Songkick artist ID
     let songkickUpcomingURL = "https://api.songkick.com/api/3.0/artists/" + songkickArtistID + "/calendar.json?apikey=fsP4jkGr6vQE1jDS";
 
@@ -229,6 +238,7 @@ function searchUpcoming() {
     }).then(function(response) {
 
         console.log(response);
+
 
         for (i = 0; i < response.resultsPage.results.event.length; i++) {
 
@@ -252,19 +262,18 @@ function searchUpcoming() {
             console.log("Lng: " + venueLng);
 
             $('#venues').append('<div class="artistVenueBtn" venue="' + venue + '"><p class ="artistVenueText">' + showDate + ' - ' + venue + ' - ' + city + '</p></div>');
-
-            $(".artistVenueBtn").on("click", showVenue);
         }
     });
+
+
 }
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Google Maps //
 
-var map, service, infowindow;
+var map, service, infowindow, place;
 var markers = [];
-
 
 // Function to load map and ask for Geolocation.  Will run after DOM is loaded.
 function initialize() {
@@ -364,6 +373,7 @@ function callback(results, status) {
 
 //  Function to create a marker for each place found in the search method.
 function createMarker(place) {
+
     //  Variable to hold JSON data of each marker.
     var marker = new google.maps.Marker({
         map: map,
@@ -414,17 +424,13 @@ function showVenue() {
 
 
 //  Google Map callback function for selected venue on artists page
-function venueCallback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
+function venueCallback(results) {
 
-        var place = results[0];
+    //  Calling function to create marker for selected venue
+    venueCreateMarker(results[0]);
 
-        //  Calling function to create marker for selected venue
-        createMarker(place);
-
-        //  Setting center of map on venue
-        map.setCenter(results[0].geometry.location);
-    }
+    //  Setting center of map on venue
+    map.setCenter(results[0].geometry.location);
 }
 
 //  Google map function for creating marker for selected venue on artists page
