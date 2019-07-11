@@ -537,35 +537,3 @@ function venueCreateMarker(place) {
         infowindow.open(map, this);
     });
 }
-
-
-////////////////////Firebase Database //////////////////////////
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyChzlaQuNcxmyvTFg7EFshMpcjWPKzsut4",
-    authDomain: "monki-4fbfd.firebaseapp.com",
-    databaseURL: "https://monki-4fbfd.firebaseio.com",
-    projectId: "monki-4fbfd",
-    storageBucket: "",
-    messagingSenderId: "517492750425",
-    appId: "1:517492750425:web:bda4964130a6da3c"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
-//variable for database
-var database = firebase.database();
-
-//function and variable to store artist in database
-var recentArtist = "";
-
-function storeArtistSearch() {
-    var recentArtistSearch = {
-        recentArtist: userInput
-    };
-
-    database.ref().push(recentArtistSearch);
-};
-
