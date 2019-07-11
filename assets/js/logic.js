@@ -202,8 +202,6 @@ $(document).on("click", "#loginBtn", spotifyLogin);
 var songkickArtistID, venue, venueLat, venueLng, city, date, venueLocation;
 
 function getArtistID() {
-    //  Example ARTIST for testing purposes until artistName variable is linked to a searched result.
-    artistName = "Red Hot Chili Peppers"
 
     // Querying the songkick api for the selected artist
     let songkickArtistURL = "https://api.songkick.com/api/3.0/search/artists.json?apikey=fsP4jkGr6vQE1jDS&query=" + artistName;
