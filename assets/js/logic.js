@@ -5,7 +5,7 @@ var spotifyQueryURL = 'https://api.spotify.com/v1/';
 
 var userInput = ''; // User input from search bar
 var spotifyID = ''; // Generated ID for search result
-var songkickName = ''; // Generated name for search result
+var artistName = ''; // Generated name for search result
 
 // Home page call on ready
 homePage();
@@ -34,6 +34,7 @@ function showHome() {
     hideHTML();
     $("#homePage").show();
 }
+
 function showResult() {
     hideHTML();
     $("#nav").show();
@@ -41,6 +42,7 @@ function showResult() {
     $("#searchBoxMap").hide();
     $("#resultPage").show();
 }
+
 function showArtist() {
     hideHTML();
     $("#nav").show();
@@ -48,6 +50,7 @@ function showArtist() {
     $("#searchBoxMap").hide();
     $("#artistPage").show();
 }
+
 function showMap() {
     hideHTML();
     $("#nav").show();
@@ -79,19 +82,17 @@ function navSearch() {
 
 function resultPage() {
     console.log(userInput);
-
     if (userInput !== "" && userInput !== undefined) {
         // Call Spotify result
         spotify.call(
-            `${spotifyQueryURL}search`,
-            { q: userInput, type: 'artist', market: 'US', limit: '20', offset: '0' },
+            `${spotifyQueryURL}search`, { q: userInput, type: 'artist', market: 'US', limit: '20', offset: '0' },
             spotifyResult
         );
-    }
-    else {
+    } else {
         console.log("ERROR: Do not leave the search input blank!");
     }
 }
+
 function spotifyResult(data) {
     console.log(data); // Full Data List
 
@@ -102,7 +103,7 @@ function spotifyResult(data) {
     $("#resultTitle").text(`Artist results for "${userInput}"`);
 
     // Loop to create search results & links
-    for(var i = 0; i < 20; i++) {
+    for (var i = 0; i < 20; i++) {
         if (data.artists.items[i] !== undefined && data.artists.items[i].images.length !== 0) {
             var newSearchLink = $(`<a class="resultBtn" href="#" data-id="${data.artists.items[i].id}" data-name="${data.artists.items[i].name}">`);
             var newSearchDiv = $(`<div class="resultBox">`);
@@ -113,12 +114,10 @@ function spotifyResult(data) {
             newSearchDiv.append(newSearchName);
             newSearchLink.append(newSearchDiv);
             $("#results").append(newSearchLink);
-        }
-        else if (data.artists.items[0] == undefined) {
+        } else if (data.artists.items[0] == undefined) {
             $("#resultTitle").text(`No artist results for "${userInput}"`);
             continue;
-        }
-        else {
+        } else {
             console.log("Artist does not exist or is missing parameters, skipping...");
         }
     }
@@ -131,7 +130,8 @@ function spotifyResult(data) {
 function artistPage() {
     // Get Spotify artist ID & artist name
     spotifyID = $(this).attr("data-id");
-    songkickName = $(this).attr("data-name");
+
+    artistName = $(this).attr("data-name");
 
     // Call Spotify artist & top-tracks
     spotify.call(
@@ -145,6 +145,7 @@ function artistPage() {
         spotifyTrack
     );
 }
+
 function spotifyArtist(artistData) {
     console.log(artistData); // Full artistData List
 
@@ -155,6 +156,7 @@ function spotifyArtist(artistData) {
     $("#linkWeb").attr("href", artistData.external_urls.spotify);
     $("#linkApp").attr("href", artistData.uri)
 }
+
 function spotifyTrack(trackData) {
     console.log(trackData); // Full trackData List
 
@@ -190,7 +192,6 @@ $(document).on("click", "#searchBtn", homeSearch);
 $(document).on("click", "#searchBtnNav", navSearch);
 $(document).on("click", "#searchBtnMap", mapPage);
 $(document).on("click", ".resultBtn", artistPage);
-$(document).on("click", ".artistVenueBtn", mapPage);
 $(document).on("click", "#mapBtn", mapPage);
 $(document).on("click", "#loginBtn", spotifyLogin);
 
@@ -202,8 +203,9 @@ var songkickArtistID, venue, venueLat, venueLng, city, date, venueLocation;
 
 function getArtistID() {
     //  Example ARTIST for testing purposes until artistName variable is linked to a searched result.
-    artistName = "Maroon 5"
-        // Querying the songkick api for the selected artist
+    artistName = "Red Hot Chili Peppers"
+
+    // Querying the songkick api for the selected artist
     let songkickArtistURL = "https://api.songkick.com/api/3.0/search/artists.json?apikey=fsP4jkGr6vQE1jDS&query=" + artistName;
 
     $.ajax({
@@ -251,9 +253,9 @@ function searchUpcoming() {
             console.log("Lat: " + venueLat);
             console.log("Lng: " + venueLng);
 
-            $('#venues').append('<div class="artistVenueBtn"><p class ="artistVenueText">' + showDate + ' - ' + venue + ' - ' + city + '</p></div>')
+            $('#venues').append('<div class="artistVenueBtn" venue="' + venue + '"><p class ="artistVenueText">' + showDate + ' - ' + venue + ' - ' + city + '</p></div>');
 
-
+            $(".artistVenueBtn").on("click", showVenue);
         }
     });
 }
@@ -357,14 +359,13 @@ function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
             var place = results[i];
-            createMarker(results[i]);
+            createMarker(place);
         }
     }
 }
 
 //  Function to create a marker for each place found in the search method.
 function createMarker(place) {
-    var placeLoc = place.geometry.location;
     //  Variable to hold JSON data of each marker.
     var marker = new google.maps.Marker({
         map: map,
@@ -384,5 +385,70 @@ function createMarker(place) {
 }
 
 
+//  Function to capture Venue name on user click and show map of venue
+function showVenue() {
 
-getArtistID();
+    //  Capturing name of selected venue from Upcoming shows list.
+    let venue = $(this).attr("venue");
+
+    //  Clearing markers
+    setMapOnAll(null);
+    markers = [];
+
+    //  Object to store Google Places API Text Search parameters.
+    var request = {
+        query: venue,
+        fields: ['name', 'geometry']
+    };
+
+    // Calling Google Places API Text Search Service
+    service = new google.maps.places.PlacesService(map);
+
+    //  Calling function to add marker and set map position based on which Venue user clicked
+    service.findPlaceFromQuery(request, venueCallback);
+
+    //  Changing map title
+    $('#mapTitle').text(venue);
+
+    //  Showing map page
+    showMap();
+}
+
+
+//  Google Map callback function for selected venue on artists page
+function venueCallback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+
+        var place = results[0];
+
+        //  Calling function to create marker for selected venue
+        createMarker(place);
+
+        //  Setting center of map on venue
+        map.setCenter(results[0].geometry.location);
+    }
+}
+
+//  Google map function for creating marker for selected venue on artists page
+function venueCreateMarker(place) {
+
+    //  Variable to hold JSON data of each marker.
+    var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+    });
+
+    //  Pusing each marker to marker array.  Used to clear old markers.
+    markers.push(marker);
+
+    //  Function to show InfoWindow when user clicks a marker.
+    google.maps.event.addListener(marker, 'click', function() {
+
+        //  Setting content of InfoWindow
+        infowindow.setContent('<div><b>' + place.name + '</b><br>' +
+            place.formatted_address + '<br><a href="https://www.google.com/maps/search/?api=1&query=' + place.name + '" target="_blank">View on Google Maps</a>' + '</div>');
+
+        //  Displaying the InfoWindow of marker clicked by user.
+        infowindow.open(map, this);
+    });
+}
