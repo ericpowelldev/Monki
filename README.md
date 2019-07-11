@@ -11,21 +11,21 @@ Amber Charnley
 ### Description
 Project creating an all around application based on user inputed music artists and locations of venues. Geared to be user inactive and provide information about the when and where of up and coming shows. Application supplies basic information about the artists and the venues, also a link to the artists page on Spotify for even more extensive information if they so choose to use it. 
 
-Inquiries about artists will provide an image, top tracks widget, upcoming tour dates and shows, along with the related links. Inquires about the location will also take into account the artists being searched for, looking up specific locations on a user interactive map. Also has functionality to search local venues, based on the user's location or an inputed location. 
+Inquiries about artists will provide an image, top tracks widget, upcoming tour dates and shows, along with the related links. Inquires about the location will also take into account the artists being searched for, looking up specific locations on a user interactive map. Also has functionality to search local venues, based on the user's location or an searched location. 
 
 ### API's
-Spotify
-GoogleMaps
+Spotify<BR>
+GoogleMaps<BR>
 Songkick
 
 ### Target Audience
-Create an interactive application to provide users with basic information about a researched artists; also provide the locations of venues either by user location or searched location. Bringing the avid music junky information to enjoy their favortite artists in person or streaming provided by Spotify. 
+Create an interactive application to provide users with basic information about a researched artists; also provide the locations of venues either by user location or searched location. Bringing the avid music junky information to enjoy their favorite artists in person or streaming provided by Spotify. 
 
 ### Addressed Problem
 Making it more accessible to the user, putting artist information and upcoming shows in one place. Also can find local entertainment as well with user provided location. Creating a seamless interaction between information and venue locations. 
 
 ### Primary Goal
-The primary goal is to provide the user with a friendly and interactive experience to bring them requested information about a music artist. The user's ability to search is unlimited and can be changed extensively either by location or by music artist. Interactive map to also provide more convience in one place to see local entertainment or look into a location for an upcoming show about a searched artist, as well as surrounding venues. 
+The primary goal is to provide the user with a friendly and interactive experience to bring them requested information about a music artist. The user's ability to search is unlimited and can be changed extensively either by location or by music artist. Interactive map to also provide more convenience in one place to see local entertainment or look into a location for an upcoming show about a searched artist, as well as surrounding venues. 
 
 ### User Stories
 - As a fan of music/artists, I want to know everything about my 'artist' so that I can be more informed my 'artist'
