@@ -20,7 +20,7 @@ firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
 // Function and variable to store artist in database
-function storeArtistSearch(){
+function storeArtistSearch() {
     var recentArtistSearch = {
         recentArtist: userInput
     };
@@ -223,11 +223,16 @@ function mapPage() {
     initialize();
 }
 
+function showUpcoming() {
+    $("#upcomingShows").show();
+}
+
 $(document).on("click", "#navBtn", showHome);
 $(document).on("click", "#searchBtn", homeSearch);
 $(document).on("click", "#searchBtnNav", navSearch);
 $(document).on("click", "#searchBtnMap", mapPage);
 $(document).on("click", "#mapBtn", mapPage);
+$(document).on("click", "#mapBtn", showUpcoming);
 $(document).on("click", "#loginBtn", spotifyLogin);
 $(document).on("click", ".artistVenueBtn", showVenue);
 
@@ -476,7 +481,7 @@ function venueUpcoming(songkickVenueID) {
 
 //  Function to capture Venue name on user click and show map of venue
 function showVenue() {
-
+    $("#upcomingShows").hide();
     //  Capturing name of selected venue from Upcoming shows list.
     let venue = $(this).attr("venue");
 
