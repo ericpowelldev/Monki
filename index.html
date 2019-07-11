@@ -101,6 +101,7 @@
                 <div class="artistBoxSmall" id="tracks"></div>
                 <p class="artistTitle2">Upcoming Shows</p>
                 <div class="artistBoxMedium" id="venues">
+
                     <!------------------------------------Example html to load into Upcoming Shows------------- 
                     <div class="artistVenueBtn" href="#">
                         <p class="artistVenueText" id="venue1">07/04/1969 - Madison Square Garden @ 7:00 PM</p>
@@ -109,15 +110,12 @@
                         <p class="artistVenueText" id="venue2">07/04/1969 - Madison Square Garden @ 7:00 PM</p>
                     </div>
                    -------------------------------------------------------------------------------------------->
+
                 </div>
                 <p class="artistTitle2">Spotify Links</p>
                 <div class="artistBoxMedium" id="links">
-                    <a class="artistLinkBtn" id="linkWeb" href="#">
-                        <p class="artistLinkText">Link to Artist's Spotify Page (Web)</p>
-                    </a>
-                    <a class="artistLinkBtn" id="linkApp" href="#">
-                        <p class="artistLinkText">Link to Artist's Spotify Page (Desktop)</p>
-                    </a>
+                    <p class="artistLinkText"><a class="artistLinkBtn" id="linkWeb" href="#" target="_blank">Link to Artist's Spotify Page (Web)</a></p>
+                    <p class="artistLinkText"><a class="artistLinkBtn" id="linkApp" href="#">Link to Artist's Spotify Page (Desktop)</a></p>
                 </div>
             </div>
             <br>
@@ -130,14 +128,20 @@
                 <br>
                 <br>
                 <br>
-                <p id="mapTitle">Location results for "23112"</p>
+                <div id="mapTitle"></div>
                 <div id="mapBox"></div>
-                <div id="searchBoxAmount">
+
+
+                <!---------------- Search Box Amount to be added dynamically when searching multiple venues
+
+                 <div id="searchBoxAmount">
                     <input id="searchTxtAmount" type="text" name="" placeholder="Result amount (25)">
                     <a id="searchBtnAmount" href="#">
                         <img src="assets/images/searchBtn.png">
                     </a>
-                </div>
+                </div> 
+                ----------------------------------------------------------------------------------------->
+
             </div>
             <br>
         </div>
@@ -165,15 +169,11 @@
 
     <!-- JavaScript Reference -->
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/js/spotify.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="assets/js/logic.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_WEvmnWjkNFyvAaYYfsxqsAAUhCNNaPM&libraries=places&callback=initialize"
-        async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_WEvmnWjkNFyvAaYYfsxqsAAUhCNNaPM&libraries=places&callback=initialize" async defer></script>
 
 </body>
 
