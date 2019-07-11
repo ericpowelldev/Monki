@@ -14,8 +14,8 @@ Project creating an all around application based on user inputed music artists a
 Inquiries about artists will provide an image, top tracks widget, upcoming tour dates and shows, along with the related links. Inquires about the location will also take into account the artists being searched for, looking up specific locations on a user interactive map. Also has functionality to search local venues, based on the user's location or an inputed location. 
 
 ### API's
-Spotify
-GoogleMaps
+Spotify<BR>
+GoogleMaps<BR>
 Songkick
 
 ### Target Audience
