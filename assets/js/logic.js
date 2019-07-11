@@ -71,6 +71,7 @@ function homePage() {
 function homeSearch() {
     userInput = $("#searchTxt").val().trim();
     $("#searchTxt").val("");
+    storeArtistSearch();
     resultPage();
 }
 // Get user input
@@ -269,6 +270,10 @@ function searchUpcoming() {
 }
 
 
+
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Google Maps //
 
@@ -384,6 +389,8 @@ function createMarker(place) {
 
     //  Function to show InfoWindow when user clicks a marker.
     google.maps.event.addListener(marker, 'click', function() {
+
+        searchVenue(place);
         //  Setting content of InfoWindow
         infowindow.setContent('<div><b>' + place.name + '</b><br>' +
             place.formatted_address + '<br><a href="https://www.google.com/maps/search/?api=1&query=' + place.name + '" target="_blank">View on Google Maps</a>' + '</div>');
@@ -392,6 +399,52 @@ function createMarker(place) {
     });
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////    Getting songkick venue ID to use in venueUpcoming function
+var songkickVenueID;
+
+function searchVenue(place) {
+
+
+    let searchVenueURL = 'https://api.songkick.com/api/3.0/search/venues.json?query=' + place.name + '&apikey=fsP4jkGr6vQE1jDS';
+
+    $.ajax({
+        url: searchVenueURL,
+        method: "GET"
+    }).then(function(response) {
+
+        songkickVenueID = response.resultsPage.results.venue[0].id;
+        console.log(response);
+        console.log(songkickVenueID);
+        venueUpcoming(songkickVenueID);
+    });
+}
+
+var upcomingEvents, show;
+
+function venueUpcoming(songkickVenueID) {
+
+    $('#mapUpcomingEvents').empty();
+
+    let venueUpcomingURL = 'https://api.songkick.com/api/3.0/venues/' + songkickVenueID + '/calendar.json?apikey=fsP4jkGr6vQE1jDS';
+
+    $.ajax({
+        url: venueUpcomingURL,
+        method: "GET"
+    }).then(function(response) {
+
+        console.log(response);
+
+        upcomingEvents = response.resultsPage.results.event;
+
+        for (var i = 0; i < upcomingEvents.length; i++) {
+
+            show = upcomingEvents[i].displayName;
+
+            $('#mapUpcomingEvents').append('<div><p class ="artistVenueText">' + show + '</p></div>');
+        }
+    });
+}
 
 //  Function to capture Venue name on user click and show map of venue
 function showVenue() {
@@ -456,3 +509,33 @@ function venueCreateMarker(place) {
         infowindow.open(map, this);
     });
 }
+
+////////////////////Firebase Database //////////////////////////
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyChzlaQuNcxmyvTFg7EFshMpcjWPKzsut4",
+    authDomain: "monki-4fbfd.firebaseapp.com",
+    databaseURL: "https://monki-4fbfd.firebaseio.com",
+    projectId: "monki-4fbfd",
+    storageBucket: "",
+    messagingSenderId: "517492750425",
+    appId: "1:517492750425:web:bda4964130a6da3c"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+//variable for database
+var database = firebase.database();
+
+//function and variable to store artist in database
+var recentArtist = "";
+
+function storeArtistSearch() {
+    var recentArtistSearch = {
+        recentArtist: userInput
+    };
+
+    database.ref().push(recentArtistSearch);
+};

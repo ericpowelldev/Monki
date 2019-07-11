@@ -22,6 +22,10 @@
     <link rel="icon" href="assets/images/favicon.ico" />
     <title>Monki</title>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase.js"></script>
+
+
     <!-- Remove underline from all hyperlinks -->
     <style>
         a {
@@ -114,7 +118,8 @@
                 </div>
                 <p class="artistTitle2">Spotify Links</p>
                 <div class="artistBoxMedium" id="links">
-                    <p class="artistLinkText"><a class="artistLinkBtn" id="linkWeb" href="#" target="_blank">Spotify (Web)</a></p>
+                    <p class="artistLinkText"><a class="artistLinkBtn" id="linkWeb" href="#" target="_blank">Spotify
+                            (Web)</a></p>
                     <p class="artistLinkText"><a class="artistLinkBtn" id="linkApp" href="#">Spotify (Desktop)</a></p>
                 </div>
             </div>
@@ -131,6 +136,10 @@
                 <div id="mapTitle"></div>
                 <div id="mapBox"></div>
 
+                <p class="artistTitle2">Upcoming Shows</p>
+                <div class="artistBoxMedium" id="venues">
+                    <div id="mapUpcomingEvents">Click a marker to see upcoming events!</div>
+                </div>
 
                 <!---------------- Search Box Amount to be added dynamically when searching multiple venues
 
