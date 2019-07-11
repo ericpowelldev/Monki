@@ -1,5 +1,32 @@
 // var clientSecret = '8238cc51bc5b44d08a898fee93208f2a'; // Unknown what this actually does
 
+////////////////////Firebase Database //////////////////////////
+
+// Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyChzlaQuNcxmyvTFg7EFshMpcjWPKzsut4",
+    authDomain: "monki-4fbfd.firebaseapp.com",
+    databaseURL: "https://monki-4fbfd.firebaseio.com",
+    projectId: "monki-4fbfd",
+    storageBucket: "",
+    messagingSenderId: "517492750425",
+    appId: "1:517492750425:web:bda4964130a6da3c"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Variable for database
+var database = firebase.database();
+
+// Function and variable to store artist in database
+function storeArtistSearch(){
+    var recentArtistSearch = {
+        recentArtist: userInput
+    };
+    database.ref().push(recentArtistSearch);
+};
+
 // Global Variables
 var spotifyQueryURL = 'https://api.spotify.com/v1/';
 
@@ -70,13 +97,14 @@ function homePage() {
 // Get user input
 function homeSearch() {
     userInput = $("#searchTxt").val().trim();
-    $("#searchTxt").val("");
     storeArtistSearch();
+    $("#searchTxt").val("");
     resultPage();
 }
 // Get user input
 function navSearch() {
     userInput = $("#searchTxtNav").val().trim();
+    storeArtistSearch();
     $("#searchTxtNav").val("");
     resultPage();
 }
@@ -469,7 +497,7 @@ function showVenue() {
     service.findPlaceFromQuery(request, venueCallback);
 
     //  Changing map title
-    $('#mapTitle').text(venue);
+    $('#mapTitle').text(`Results for "${venue}"`);
 
     //  Showing map page
     showMap();
@@ -510,6 +538,7 @@ function venueCreateMarker(place) {
     });
 }
 
+
 ////////////////////Firebase Database //////////////////////////
 
 // Your web app's Firebase configuration
@@ -539,3 +568,4 @@ function storeArtistSearch() {
 
     database.ref().push(recentArtistSearch);
 };
+
