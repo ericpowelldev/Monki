@@ -5,7 +5,7 @@ var spotifyQueryURL = 'https://api.spotify.com/v1/';
 
 var userInput = ''; // User input from search bar
 var spotifyID = ''; // Generated ID for search result
-var songkickName = ''; // Generated name for search result
+var artistName = ''; // Generated name for search result
 
 // Home page call on ready
 homePage();
@@ -34,6 +34,7 @@ function showHome() {
     hideHTML();
     $("#homePage").show();
 }
+
 function showResult() {
     hideHTML();
     $("#nav").show();
@@ -41,6 +42,7 @@ function showResult() {
     $("#searchBoxMap").hide();
     $("#resultPage").show();
 }
+
 function showArtist() {
     hideHTML();
     $("#nav").show();
@@ -48,6 +50,7 @@ function showArtist() {
     $("#searchBoxMap").hide();
     $("#artistPage").show();
 }
+
 function showMap() {
     hideHTML();
     $("#nav").show();
@@ -83,15 +86,14 @@ function resultPage() {
     if (userInput !== "" && userInput !== undefined) {
         // Call Spotify result
         spotify.call(
-            `${spotifyQueryURL}search`,
-            { q: userInput, type: 'artist', market: 'US', limit: '20', offset: '0' },
+            `${spotifyQueryURL}search`, { q: userInput, type: 'artist', market: 'US', limit: '20', offset: '0' },
             spotifyResult
         );
-    }
-    else {
+    } else {
         console.log("ERROR: Do not leave the search input blank!");
     }
 }
+
 function spotifyResult(data) {
     console.log(data); // Full Data List
 
@@ -102,7 +104,7 @@ function spotifyResult(data) {
     $("#resultTitle").text(`Artist results for "${userInput}"`);
 
     // Loop to create search results & links
-    for(var i = 0; i < 20; i++) {
+    for (var i = 0; i < 20; i++) {
         if (data.artists.items[i] !== undefined && data.artists.items[i].images.length !== 0) {
             var newSearchLink = $(`<a class="resultBtn" href="#" data-id="${data.artists.items[i].id}" data-name="${data.artists.items[i].name}">`);
             var newSearchDiv = $(`<div class="resultBox">`);
@@ -113,12 +115,10 @@ function spotifyResult(data) {
             newSearchDiv.append(newSearchName);
             newSearchLink.append(newSearchDiv);
             $("#results").append(newSearchLink);
-        }
-        else if (data.artists.items[0] == undefined) {
+        } else if (data.artists.items[0] == undefined) {
             $("#resultTitle").text(`No artist results for "${userInput}"`);
             continue;
-        }
-        else {
+        } else {
             console.log("Artist does not exist or is missing parameters, skipping...");
         }
     }
@@ -131,9 +131,9 @@ function spotifyResult(data) {
 function artistPage() {
     // Get Spotify artist ID & artist name
     spotifyID = $(this).attr("data-id");
-    songkickName = $(this).attr("data-name");
+    artistName = $(this).attr("data-name");
 
-    console.log(spotifyID + songkickName);
+    console.log(artistName + ' ---- ' + spotifyID);
 
     // Call Spotify artist & top-tracks
     spotify.call(
@@ -147,6 +147,7 @@ function artistPage() {
         spotifyTrack
     );
 }
+
 function spotifyArtist(artistData) {
     console.log(artistData); // Full artistData List
 
@@ -158,6 +159,7 @@ function spotifyArtist(artistData) {
     $("#linkWeb").attr("target", "_blank");
     $("#linkApp").attr("href", artistData.uri)
 }
+
 function spotifyTrack(trackData) {
     console.log(trackData); // Full trackData List
 
