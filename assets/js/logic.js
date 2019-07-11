@@ -58,8 +58,8 @@ function showMap() {
 
 /////////////////////// HOME PAGE ///////////////////////
 function homePage() {
-    $("#searchTxt").empty();
-    $("#searchTxtNav").empty();
+    $("#searchTxt").val("");
+    $("#searchTxtNav").val("");
     showHome();
 }
 
@@ -67,13 +67,13 @@ function homePage() {
 // Get user input
 function homeSearch() {
     userInput = $("#searchTxt").val().trim();
-    $("#searchTxt").empty();
+    $("#searchTxt").val("");
     resultPage();
 }
 // Get user input
 function navSearch() {
     userInput = $("#searchTxtNav").val().trim();
-    $("#searchTxtNav").empty();
+    $("#searchTxtNav").val("");
     resultPage();
 }
 
@@ -133,8 +133,6 @@ function artistPage() {
     spotifyID = $(this).attr("data-id");
     songkickName = $(this).attr("data-name");
 
-    console.log(spotifyID + songkickName);
-
     // Call Spotify artist & top-tracks
     spotify.call(
         `${spotifyQueryURL}artists/${spotifyID}`, // JSON for specified artist
@@ -155,7 +153,6 @@ function spotifyArtist(artistData) {
     $("#artistImage").attr("src", artistData.images[0].url);
     $("#artistName").text(artistData.name);
     $("#linkWeb").attr("href", artistData.external_urls.spotify);
-    $("#linkWeb").attr("target", "_blank");
     $("#linkApp").attr("href", artistData.uri)
 }
 function spotifyTrack(trackData) {
