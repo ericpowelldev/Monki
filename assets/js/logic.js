@@ -130,6 +130,7 @@ function spotifyResult(data) {
 function artistPage() {
     // Get Spotify artist ID & artist name
     spotifyID = $(this).attr("data-id");
+
     artistName = $(this).attr("data-name");
 
     // Call Spotify artist & top-tracks
